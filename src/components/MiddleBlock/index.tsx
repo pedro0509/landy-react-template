@@ -8,10 +8,12 @@ interface MiddleBlockProps {
   title: string;
   content: string;
   button: string;
+  buttonLink?: string;
   t: TFunction;
+  id: string;
 }
 
-const MiddleBlock = ({ title, content, button, t }: MiddleBlockProps) => {
+const MiddleBlock = ({ title, content, button, buttonLink, t, id }: MiddleBlockProps) => {
   const scrollTo = (id: string) => {
     const element = document.getElementById(id) as HTMLDivElement;
     element.scrollIntoView({
@@ -19,7 +21,7 @@ const MiddleBlock = ({ title, content, button, t }: MiddleBlockProps) => {
     });
   };
   return (
-    <MiddleBlockSection>
+    <MiddleBlockSection id={id}>
       <Slide direction="up" triggerOnce>
         <Row justify="center" align="middle">
           <ContentWrapper>
@@ -27,7 +29,7 @@ const MiddleBlock = ({ title, content, button, t }: MiddleBlockProps) => {
               <h6>{t(title)}</h6>
               <Content>{t(content)}</Content>
               {button && (
-                <Button name="submit" onClick={() => scrollTo("mission")}>
+                <Button name="submit" onClick={() => scrollTo(buttonLink || "call-one")}>
                   {t(button)}
                 </Button>
               )}

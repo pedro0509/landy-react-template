@@ -2,8 +2,15 @@ import styled from "styled-components";
 import { Link } from "react-router-dom";
 import { MenuOutlined } from "@ant-design/icons";
 
-export const HeaderSection = styled("header")`
-  padding: 1rem 0.5rem;
+export const HeaderSection = styled("header") <{ isScrolled?: boolean }>`
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  background-color: ${({ isScrolled }) => (isScrolled ? "#fafafa" : "rgba(250, 250, 250, 0.6)")};
+  box-shadow: ${({ isScrolled }) => (isScrolled ? "0 2px 10px rgba(0, 0, 0, 0.1)" : "0 2px 10px rgba(0, 0, 0, 0)")};
+  padding: ${({ isScrolled }) => (isScrolled ? "0rem 0.5rem" : "0rem 0.5rem")};
+  transition: all 0.3s ease-in-out;
 
   .ant-row-space-between {
     align-items: center;
@@ -13,6 +20,19 @@ export const HeaderSection = styled("header")`
 
 export const LogoContainer = styled(Link)`
   display: flex;
+`;
+
+export const LogoTitle = styled("h1")`
+  font-family: 'Motiva Sans Bold', serif;
+  color: #091f36;
+  font-size: 24px;
+  margin-left: 10px;
+  align-self: center;
+  margin-bottom: 0;
+  
+  @media only screen and (max-width: 414px) {
+    font-size: 18px;
+  }
 `;
 
 export const NavLink = styled("div")`
@@ -41,7 +61,7 @@ export const Burger = styled("div")`
   display: none;
 
   svg {
-    fill: #2e186a;
+    fill: #091f36;
   }
 `;
 
@@ -59,7 +79,7 @@ export const Menu = styled("h5")`
 
 export const CustomNavLinkSmall = styled(NavLink)`
   font-size: 1.2rem;
-  color: #18216d;
+  color: #091f36;
   transition: color 0.2s ease-in;
   margin: 0.5rem 2rem;
 
@@ -88,8 +108,6 @@ export const Span = styled("span")`
   &:hover,
   &:active,
   &:focus {
-    color: rgb(255, 130, 92);
-    text-underline-position: under;
-    text-decoration: rgb(255, 130, 92) wavy underline;
+    color: #ffa600;
   }
 `;

@@ -1,15 +1,15 @@
 {
-  "title": "Light, fast & responsive",
-  "text": "This template is ready to use, so you don't need to change anything at a component level, unless you want to customize the default styling.",
+  "title": "Como Funciona",
+  "text": "Simples, transparente e direto. Você cria a campanha, a torcida doa, e o dinheiro só é liberado se o time vencer.",
   "section": [
     {
-      "title": "Why Antd?",
-      "content": "Ant Design is a React UI library that has a lot of easy-to-use components for building elegant UI.",
+      "title": "Segurança Garantida",
+      "content": "Seu dinheiro fica protegido em uma conta segura (escrow) até o apito final.",
       "icon": "notes.svg"
     },
     {
-      "title": "Why styled-components?",
-      "content": "Styled Components gives you total control over your components.",
+      "title": "Vitória Confirmada",
+      "content": "Pagamento automático aos atletas após a validação oficial do resultado da partida.",
       "icon": "notes.svg"
     }
   ]

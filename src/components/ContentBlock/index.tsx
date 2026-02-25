@@ -42,14 +42,16 @@ const ContentBlock = ({
           id={id}
           direction={direction}
         >
-          <Col lg={11} md={11} sm={12} xs={24}>
-            <SvgIcon src={icon} width="100%" height="100%" />
-          </Col>
-          <Col lg={11} md={11} sm={11} xs={24}>
+          {icon && (
+            <Col lg={11} md={11} sm={12} xs={24}>
+              <SvgIcon src={icon} width="100%" height="100%" />
+            </Col>
+          )}
+          <Col lg={icon ? 11 : 24} md={icon ? 11 : 24} sm={icon ? 11 : 24} xs={24}>
             <ContentWrapper>
               <h6>{t(title)}</h6>
-              <Content>{t(content)}</Content>
-              {direction === "right" ? (
+              <Content dangerouslySetInnerHTML={{ __html: t(content) }} />
+              {button && (
                 <ButtonWrapper>
                   {typeof button === "object" &&
                     button.map(
@@ -72,7 +74,8 @@ const ContentBlock = ({
                       }
                     )}
                 </ButtonWrapper>
-              ) : (
+              )}
+              {section && (
                 <ServiceWrapper>
                   <Row justify="space-between">
                     {typeof section === "object" &&

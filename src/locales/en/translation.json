@@ -4,7 +4,7 @@
   "Mission": "Mission",
   "Product": "Product",
   "Tell us everything": "Tell us everything",
-  "Contact": "Contact",
+  "Contact": "Acesse já!",
   "Do you have any question? Feel free to reach out.": "Do you have any question? Feel free to reach out.",
   "Let's Chat": "Let's Chat",
   "Application Security": "Application Security",
@@ -19,10 +19,14 @@
   "Learn more": "Learn more",
   "Get started": "Get started",
   "Submit": "Submit",
-  "Message" : "Message",
+  "Message": "Message",
   "Your Message": "Your Message",
-  "Name" : "Name",
+  "Name": "Name",
   "Your Name": "Your Name",
-  "Email" : "Email",
-  "Your Email": "Your Email"
+  "Email": "Email",
+  "Your Email": "Your Email",
+  "Como Funciona": "How it Works",
+  "Sobre a empresa": "About Us",
+  "Contato": "Contact",
+  "Apoie um Atleta": "Support an Athlete"
 }

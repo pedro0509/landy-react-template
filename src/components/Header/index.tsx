@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Row, Col, Drawer } from "antd";
 import { withTranslation, TFunction } from "react-i18next";
 import Container from "../../common/Container";
@@ -7,6 +7,7 @@ import { Button } from "../../common/Button";
 import {
   HeaderSection,
   LogoContainer,
+  LogoTitle,
   Burger,
   NotHidden,
   Menu,
@@ -18,6 +19,20 @@ import {
 
 const Header = ({ t }: { t: TFunction }) => {
   const [visible, setVisibility] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 50) {
+        setIsScrolled(true);
+      } else {
+        setIsScrolled(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   const toggleButton = () => {
     setVisibility(!visible);
@@ -33,21 +48,21 @@ const Header = ({ t }: { t: TFunction }) => {
     };
     return (
       <>
+        <CustomNavLinkSmall onClick={() => scrollTo("how-it-works")}>
+          <Span>{t("Como Funciona")}</Span>
+        </CustomNavLinkSmall>
         <CustomNavLinkSmall onClick={() => scrollTo("about")}>
-          <Span>{t("About")}</Span>
+          <Span>{t("Sobre a empresa")}</Span>
         </CustomNavLinkSmall>
-        <CustomNavLinkSmall onClick={() => scrollTo("mission")}>
-          <Span>{t("Mission")}</Span>
-        </CustomNavLinkSmall>
-        <CustomNavLinkSmall onClick={() => scrollTo("product")}>
-          <Span>{t("Product")}</Span>
+        <CustomNavLinkSmall onClick={() => scrollTo("contact")}>
+          <Span>{t("Contato")}</Span>
         </CustomNavLinkSmall>
         <CustomNavLinkSmall
           style={{ width: "180px" }}
-          onClick={() => scrollTo("contact")}
+          onClick={() => scrollTo("support")}
         >
           <Span>
-            <Button>{t("Contact")}</Button>
+            <Button>{t("Apoie um Atleta")}</Button>
           </Span>
         </CustomNavLinkSmall>
       </>
@@ -55,11 +70,18 @@ const Header = ({ t }: { t: TFunction }) => {
   };
 
   return (
-    <HeaderSection>
+    <HeaderSection isScrolled={isScrolled}>
       <Container>
         <Row justify="space-between">
           <LogoContainer to="/" aria-label="homepage">
-            <SvgIcon src="logo.svg" width="101px" height="64px" />
+            <img
+              src="/img/bicho-do-atleta.png"
+              alt="Bicho do Atleta Logo"
+              style={{ maxHeight: isScrolled ? "40px" : "64px", width: "auto", transition: "max-height 0.3s ease-in-out" }}
+            />
+            <LogoTitle style={{ fontSize: isScrolled ? "20px" : "24px", transition: "font-size 0.3s ease-in-out" }}>
+              Bicho do Atleta
+            </LogoTitle>
           </LogoContainer>
           <NotHidden>
             <MenuItem />

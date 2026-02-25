@@ -1,13 +1,9 @@
 {
-  "title": "Landing page template for developers & startups",
-  "text": "Beautifully designed templates using React.js, ant design and styled-components! Save weeks of time and build your landing page in minutes.",
+  "title": "Apoie o seu Time do Coração!",
+  "text": "Conheça a plataforma que irá revolucionar a forma de <b>APOIAR</b> o seu <b>TIME DO CORAÇÃO</b> ou o seu <b>ATLETA PREFERIDO</b>. ",
   "button": [
     {
-      "title": "Explore"
-    },
-    {
-      "title": "Learn more",
-      "color": "#fff"
+      "title": "Saiba como apoiar"
     }
   ]
 }

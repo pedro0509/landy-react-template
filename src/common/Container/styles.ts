@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const StyledContainer = styled("div")<{
+export const StyledContainer = styled("div") <{
   border?: boolean;
 }>`
   position: relative;
@@ -10,7 +10,7 @@ export const StyledContainer = styled("div")<{
   margin-left: auto;
   padding: 0 60px;
   overflow: hidden;
-  border-top: ${(p) => (p.border ? "1px solid #CDD1D4" : "")};
+  border-top: ${(p) => (p.border ? "1px solid #D4a93c" : "")};
 
   @media only screen and (max-width: 1024px) {
     max-width: calc(100% - 68px);
