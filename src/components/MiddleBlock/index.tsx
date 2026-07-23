@@ -22,6 +22,7 @@ const MiddleBlock = ({ title, content, button, buttonLink, t, id }: MiddleBlockP
   };
   return (
     <MiddleBlockSection id={id}>
+      {/* @ts-ignore: children prop not typed */}
       <Slide direction="up" triggerOnce>
         <Row justify="center" align="middle">
           <ContentWrapper>

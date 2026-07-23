@@ -1,6 +1,7 @@
 import { TFunction } from "react-i18next";
 export interface ContentBlockProps {
   icon?: string;
+  image?: string;
   title: string;
   content: string;
   section?: {
@@ -21,4 +22,8 @@ export interface ContentBlockProps {
   t: TFunction;
   id: string;
   direction: "left" | "right";
+  alertBox?: {
+    title: string;
+    content: string;
+  };
 }

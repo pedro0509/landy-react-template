@@ -1,23 +1,33 @@
-import { Row, Col } from "antd";
-import { Fade } from "react-awesome-reveal";
+import { Fragment } from "react";
+import { Col } from "antd";
+import { Slide } from "react-awesome-reveal";
+// @ts-ignore: children prop not typed
+
 import { withTranslation } from "react-i18next";
 
 import { ContentBlockProps } from "./types";
 import { Button } from "../../common/Button";
 import { SvgIcon } from "../../common/SvgIcon";
+// SvgIcon is used later, keep import
 import {
   ContentSection,
   Content,
   ContentWrapper,
   ServiceWrapper,
+  ServiceItem,
+  Arrow,
   MinTitle,
   MinPara,
   StyledRow,
   ButtonWrapper,
+  AlertBox,
+  AlertTitle,
+  AlertContent,
 } from "./styles";
 
 const ContentBlock = ({
   icon,
+  image,
   title,
   content,
   section,
@@ -25,6 +35,7 @@ const ContentBlock = ({
   t,
   id,
   direction,
+  alertBox,
 }: ContentBlockProps) => {
   const scrollTo = (id: string) => {
     const element = document.getElementById(id) as HTMLDivElement;
@@ -35,19 +46,25 @@ const ContentBlock = ({
 
   return (
     <ContentSection>
-      <Fade direction={direction} triggerOnce>
+      {/* @ts-ignore: children prop not typed */}
+      <Slide direction="left" triggerOnce>
         <StyledRow
           justify="space-between"
           align="middle"
           id={id}
           direction={direction}
         >
-          {icon && (
+          {image && (
+            <Col lg={11} md={11} sm={12} xs={24}>
+              <img src={image} alt="section" style={{ width: "100%", height: "auto", borderRadius: "8px" }} />
+            </Col>
+          )}
+          {!image && icon && (
             <Col lg={11} md={11} sm={12} xs={24}>
               <SvgIcon src={icon} width="100%" height="100%" />
             </Col>
           )}
-          <Col lg={icon ? 11 : 24} md={icon ? 11 : 24} sm={icon ? 11 : 24} xs={24}>
+          <Col lg={(icon || image) ? 11 : 24} md={(icon || image) ? 11 : 24} sm={(icon || image) ? 11 : 24} xs={24}>
             <ContentWrapper>
               <h6>{t(title)}</h6>
               <Content dangerouslySetInnerHTML={{ __html: t(content) }} />
@@ -77,19 +94,19 @@ const ContentBlock = ({
               )}
               {section && (
                 <ServiceWrapper>
-                  <Row justify="space-between">
-                    {typeof section === "object" &&
-                      section.map(
-                        (
-                          item: {
-                            title: string;
-                            content: string;
-                            icon: string;
-                          },
-                          id: number
-                        ) => {
-                          return (
-                            <Col key={id} span={11}>
+                  {typeof section === "object" &&
+                    section.map(
+                      (
+                        item: {
+                          title: string;
+                          content: string;
+                          icon: string;
+                        },
+                        id: number
+                      ) => {
+                        return (
+                          <Fragment key={id}>
+                            <ServiceItem>
                               <SvgIcon
                                 src={item.icon}
                                 width="60px"
@@ -97,17 +114,26 @@ const ContentBlock = ({
                               />
                               <MinTitle>{t(item.title)}</MinTitle>
                               <MinPara>{t(item.content)}</MinPara>
-                            </Col>
-                          );
-                        }
-                      )}
-                  </Row>
+                            </ServiceItem>
+                            {id < section.length - 1 && (
+                              <Arrow>➔</Arrow>
+                            )}
+                          </Fragment>
+                        );
+                      }
+                    )}
                 </ServiceWrapper>
+              )}
+              {alertBox && (
+                <AlertBox>
+                  <AlertTitle>{t(alertBox.title)}</AlertTitle>
+                  <AlertContent>{t(alertBox.content)}</AlertContent>
+                </AlertBox>
               )}
             </ContentWrapper>
           </Col>
         </StyledRow>
-      </Fade>
+      </Slide>
     </ContentSection>
   );
 };

@@ -1,16 +1,25 @@
 {
   "title": "Como Funciona",
-  "text": "Simples, transparente e direto. Você cria a campanha, a torcida doa, e o dinheiro só é liberado se o time vencer.",
+  "text": "Simples, transparente e seguro.",
   "section": [
     {
-      "title": "Segurança Garantida",
-      "content": "Seu dinheiro fica protegido em uma conta segura (escrow) até o apito final.",
+      "title": "Escolha uma partida",
+      "content": "Acesse a plataforma e selecione o jogo ou evento que deseja incentivar.",
       "icon": "notes.svg"
     },
     {
-      "title": "Vitória Confirmada",
-      "content": "Pagamento automático aos atletas após a validação oficial do resultado da partida.",
+      "title": "Defina o valor do Bicho",
+      "content": "Escolha o valor do seu apoio e faça sua doação de forma segura.",
+      "icon": "notes.svg"
+    },
+    {
+      "title": "Repasse e Celebre",
+      "content": "Se o time vencer, o dinheiro é repassado aos atletas e vocês comemoram!",
       "icon": "notes.svg"
     }
-  ]
+  ],
+  "alertBox": {
+    "title": "E SE NÃO VENCEREM?",
+    "content": "Fique tranquilo! O valor é 100% estornado para você. Sua paixão sem risco!"
+  }
 }

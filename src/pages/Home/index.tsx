@@ -52,8 +52,9 @@ const Home = () => {
           title={AboutContent.title}
           content={AboutContent.text}
           section={AboutContent.section}
-          icon="graphs.svg"
+          image="/img/img-01.png"
           id="how-it-works"
+          alertBox={AboutContent.alertBox}
         />
         <ContentBlock
           direction="left"
